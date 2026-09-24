@@ -1,510 +1,224 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ESLO — My Timeline</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
+
+/* =========================
+   RESET
+========================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
+
+
+/* =========================
+   BODY
+========================= */
 
 body {
-  font-family: "Vazirmatn", sans-serif;
-  background: #05070b;
-  color: #fff;
-  overflow-x: hidden;
+    font-family: "Vazirmatn", sans-serif;
+    background: #05070b;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* BACKGROUND */
+
+/* =========================
+   BACKGROUND
+========================= */
 
 body::before {
-  content: "";
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  background: #2563eb;
-  filter: blur(180px);
-  opacity: .12;
-  top: -150px;
-  left: -150px;
-  pointer-events: none;
+    content: "";
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background: #2563eb;
+
+    filter: blur(180px);
+    opacity: .12;
+
+    top: -150px;
+    left: -150px;
+
+    pointer-events: none;
+
+    z-index: -1;
 }
+
 
 body::after {
-  content: "";
-  position: fixed;
-  width: 450px;
-  height: 450px;
-  background: #7c3aed;
-  filter: blur(180px);
-  opacity: .08;
-  bottom: -150px;
-  right: -150px;
-  pointer-events: none;
+    content: "";
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    background: #7c3aed;
+
+    filter: blur(180px);
+    opacity: .08;
+
+    bottom: -150px;
+    right: -150px;
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
-/* NAVBAR */
+
+/* =========================
+   NAVBAR
+========================= */
 
 nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 7%;
-  background: rgba(5,7,11,.65);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  z-index: 100;
+    position: fixed;
+
+    top: 0;
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(5, 7, 11, .65);
+
+    backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+
+    z-index: 100;
 }
+
+
+/* LOGO */
 
 .logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
 }
+
 
 .logo img {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  display: block;
-} 
+    width: 38px;
+    height: 38px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* NAV LINKS */
 
 nav a {
-  color: #aaa;
-  text-decoration: none;
-  margin-right: 25px;
-  font-size: 14px;
-  transition: .3s;
+    color: #aaa;
+
+    text-decoration: none;
+
+    margin-right: 25px;
+
+    font-size: 14px;
+
+    transition: .3s;
 }
+
 
 nav a:hover {
-  color: #fff;
+    color: #fff;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 100px 20px;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
 }
+
 
 .hero-content {
-  max-width: 800px;
+    max-width: 800px;
 }
+
+
+/* BADGE */
 
 .badge {
-  display: inline-block;
-  padding: 8px 15px;
-  border: 1px solid rgba(96,165,250,.3);
-  border-radius: 50px;
-  color: #60a5fa;
-  background: rgba(96,165,250,.06);
-  font-size: 13px;
-  margin-bottom: 25px;
+
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(96, 165, 250, .3);
+
+    border-radius: 50px;
+
+    color: #60a5fa;
+
+    background: rgba(96, 165, 250, .06);
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
 }
+
+
+/* HERO TITLE */
 
 .hero h1 {
-  font-size: clamp(70px, 18vw, 150px);
-  line-height: .9;
-  letter-spacing: 12px;
-  font-weight: 800;
-  background: linear-gradient(135deg,#fff,#64748b);
-  -webkit-background-clip: text;
-  color: transparent;
+
+    font-size: clamp(70px, 18vw, 150px);
+
+    line-height: .9;
+
+    letter-spacing: 12px;
+
+    font-weight: 800;
+
+    background: linear-gradient(
+        135deg,
+        #fff,
+        #64748b
+    );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
 }
 
-.hero p {
-  margin-top: 30px;
-  color: #8b95a7;
-  font-size: 17px;
-}
 
-/* BUTTON */
-
-.button {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 13px 25px;
-  border-radius: 12px;
-  background: #fff;
-  color: #05070b;
-  text-decoration: none;
-  font-weight: 700;
-  transition: .3s;
-}
-
-.button:hover {
-  transform: translateY(-3px);
-}
-
-/* SECTION */
-
-section {
-  padding: 100px 7%;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-.section-title span {
-  color: #60a5fa;
-  font-size: 13px;
-}
-
-.section-title h2 {
-  margin-top: 10px;
-  font-size: 38px;
-}
-
-/* YEAR NAVIGATION */
-
-.years {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 70px;
-}
-
-.year-btn {
-  border: 1px solid #202938;
-  background: #0b0f17;
-  color: #8b95a7;
-  padding: 10px 18px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: .3s;
-  font-family: inherit;
-}
-
-.year-btn:hover,
-.year-btn.active {
-  background: #fff;
-  color: #05070b;
-}
-
-/* TIMELINE */
-
-.timeline {
-  position: relative;
-  max-width: 850px;
-  margin: auto;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  background: linear-gradient(#2563eb,transparent);
-  top: 0;
-  bottom: 0;
-  right: 50%;
-}
-
-.event {
-  position: relative;
-  width: 50%;
-  padding: 15px 35px;
-  margin-bottom: 30px;
-}
-
-.event:nth-child(odd) {
-  margin-right: 50%;
-  text-align: right;
-}
-
-.event:nth-child(even) {
-  margin-left: 50%;
-  text-align: left;
-}
-
-.event::before {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #2563eb;
-  border: 3px solid #05070b;
-  border-radius: 50%;
-  top: 25px;
-  right: -8px;
-  box-shadow: 0 0 20px rgba(37,99,235,.7);
-}
-
-.event:nth-child(even)::before {
-  left: -8px;
-  right: auto;
-}
-
-.event-content {
-  background: rgba(15,23,42,.7);
-  border: 1px solid rgba(255,255,255,.07);
-  border-radius: 18px;
-  padding: 25px;
-  transition: .3s;
-}
-
-.event-content:hover {
-  transform: translateY(-5px);
-  border-color: rgba(96,165,250,.3);
-}
-
-.event-year {
-  color: #60a5fa;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.event h3 {
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-.event p {
-  color: #8b95a7;
-  line-height: 2;
-  font-size: 14px;
-}
-
-.event-image {
-  width: 100%;
-  border-radius: 12px;
-  margin-top: 18px;
-  display: block;
-}
-
-footer {
-  text-align: center;
-  padding: 80px 20px;
-  color: #64748b;
-  font-size: 13px;
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-  nav {
-    padding: 0 5%;
-  }
-
-  nav a {
-    margin-right: 10px;
-    font-size: 12px;
-  }
-
-  .hero h1 {
-    font-size: 75px;
-    letter-spacing: 6px;
-  }
-
-  section {
-    padding: 80px 5%;
-  }
-
-  .timeline::before {
-    right: 15px;
-  }
-
-  .event,
-  .event:nth-child(odd),
-  .event:nth-child(even) {
-    width: 100%;
-    margin: 0 0 25px 0;
-    padding: 15px 40px 15px 0;
-    text-align: right;
-  }
-
-  .event::before,
-  .event:nth-child(even)::before {
-    right: 8px;
-    left: auto;
-  }
-
-  .section-title h2 {
-    font-size: 30px;
-  }
-}
-</style>
-
-</head>
-
-<body>
-
-<nav>
-  <a href="#home" class="logo">
-  <img src="eslo-logo.png" alt="ESLO">
-  </a>
-
-  <div>
-    <a href="#home">خانه</a>
-    <a href="#timeline">مسیر من</a>
-  </div>
-</nav>
-
-
-<header class="hero" id="home">
-
-  <div class="hero-content">
-
-    <div class="badge">
-      MY TIMELINE
-    </div>
-
-    <h1>ESLO</h1>
-
-    <p>
-      داستان من، پروژه‌های من و اتفاق‌هایی که مسیرم را ساختند.
-    </p>
-
-    <a href="#timeline" class="button">
-      مشاهده مسیر من ↓
-    </a>
-
-  </div>
-
-</header>
-
-
-<section id="timeline">
-
-  <div class="section-title">
-
-    <span>MY JOURNEY</span>
-
-    <h2>مسیر من</h2>
-
-  </div>
-
-
-  <div class="years">
-
-    <button class="year-btn active">همه</button>
-    <button class="year-btn">2026</button>
-    <button class="year-btn">2025</button>
-    <button class="year-btn">2024</button>
-    <button class="year-btn">2023</button>
-
-  </div>
-
-
-  <div class="timeline">
-
-
-    <div class="event">
-
-      <div class="event-content">
-
-        <div class="event-year">
-          2026
-        </div>
-
-        <h3>
-          شروع یک فصل جدید
-        </h3>
-
-        <p>
-          اینجا می‌توانی درباره اتفاق مهمی که در سال ۲۰۲۶
-          برایت افتاده بنویسی.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="event">
-
-      <div class="event-content">
-
-        <div class="event-year">
-          2025
-        </div>
-
-        <h3>
-          یک پروژه مهم
-        </h3>
-
-        <p>
-          توضیح کوتاهی درباره پروژه یا اتفاق مهم این سال.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="event">
-
-      <div class="event-content">
-
-        <div class="event-year">
-          2024
-        </div>
-
-        <h3>
-          شروع مسیر
-        </h3>
-
-        <p>
-          اینجا می‌توانی داستان شروع کار یا فعالیتت را بنویسی.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="event">
-
-      <div class="event-content">
-
-        <div class="event-year">
-          2023
-        </div>
-
-        <h3>
-          اولین قدم‌ها
-        </h3>
-
-        <p>
-          اتفاق مهمی که در این سال برایت افتاده است.
-        </p>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<footer>
-
-  ESLO © 2026
-
-</footer>
-
-
-</body>
-</html> 
+.hero
