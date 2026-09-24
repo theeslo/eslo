@@ -219,4 +219,283 @@ section {
   margin-bottom: 30px;
 }
 
-.event:nth
+.event:nth-child(odd) {
+  margin-right: 50%;
+  text-align: right;
+}
+
+.event:nth-child(even) {
+  margin-left: 50%;
+  text-align: left;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #2563eb;
+  border: 3px solid #05070b;
+  border-radius: 50%;
+  top: 25px;
+  right: -8px;
+  box-shadow: 0 0 20px rgba(37,99,235,.7);
+}
+
+.event:nth-child(even)::before {
+  left: -8px;
+  right: auto;
+}
+
+.event-content {
+  background: rgba(15,23,42,.7);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  padding: 25px;
+  transition: .3s;
+}
+
+.event-content:hover {
+  transform: translateY(-5px);
+  border-color: rgba(96,165,250,.3);
+}
+
+.event-year {
+  color: #60a5fa;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.event h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.event p {
+  color: #8b95a7;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.event-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 18px;
+  display: block;
+}
+
+footer {
+  text-align: center;
+  padding: 80px 20px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  nav {
+    padding: 0 5%;
+  }
+
+  nav a {
+    margin-right: 10px;
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 75px;
+    letter-spacing: 6px;
+  }
+
+  section {
+    padding: 80px 5%;
+  }
+
+  .timeline::before {
+    right: 15px;
+  }
+
+  .event,
+  .event:nth-child(odd),
+  .event:nth-child(even) {
+    width: 100%;
+    margin: 0 0 25px 0;
+    padding: 15px 40px 15px 0;
+    text-align: right;
+  }
+
+  .event::before,
+  .event:nth-child(even)::before {
+    right: 8px;
+    left: auto;
+  }
+
+  .section-title h2 {
+    font-size: 30px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">ESLO</div>
+
+  <div>
+    <a href="#home">خانه</a>
+    <a href="#timeline">مسیر من</a>
+  </div>
+</nav>
+
+
+<header class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      MY TIMELINE
+    </div>
+
+    <h1>ESLO</h1>
+
+    <p>
+      داستان من، پروژه‌های من و اتفاق‌هایی که مسیرم را ساختند.
+    </p>
+
+    <a href="#timeline" class="button">
+      مشاهده مسیر من ↓
+    </a>
+
+  </div>
+
+</header>
+
+
+<section id="timeline">
+
+  <div class="section-title">
+
+    <span>MY JOURNEY</span>
+
+    <h2>مسیر من</h2>
+
+  </div>
+
+
+  <div class="years">
+
+    <button class="year-btn active">همه</button>
+    <button class="year-btn">2026</button>
+    <button class="year-btn">2025</button>
+    <button class="year-btn">2024</button>
+    <button class="year-btn">2023</button>
+
+  </div>
+
+
+  <div class="timeline">
+
+
+    <div class="event">
+
+      <div class="event-content">
+
+        <div class="event-year">
+          2026
+        </div>
+
+        <h3>
+          شروع یک فصل جدید
+        </h3>
+
+        <p>
+          اینجا می‌توانی درباره اتفاق مهمی که در سال ۲۰۲۶
+          برایت افتاده بنویسی.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="event">
+
+      <div class="event-content">
+
+        <div class="event-year">
+          2025
+        </div>
+
+        <h3>
+          یک پروژه مهم
+        </h3>
+
+        <p>
+          توضیح کوتاهی درباره پروژه یا اتفاق مهم این سال.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="event">
+
+      <div class="event-content">
+
+        <div class="event-year">
+          2024
+        </div>
+
+        <h3>
+          شروع مسیر
+        </h3>
+
+        <p>
+          اینجا می‌توانی داستان شروع کار یا فعالیتت را بنویسی.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="event">
+
+      <div class="event-content">
+
+        <div class="event-year">
+          2023
+        </div>
+
+        <h3>
+          اولین قدم‌ها
+        </h3>
+
+        <p>
+          اتفاق مهمی که در این سال برایت افتاده است.
+        </p>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  ESLO © 2026
+
+</footer>
+
+
+</body>
+</html> 
