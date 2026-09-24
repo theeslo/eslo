@@ -6,12 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ESLO — My Timeline</title>
+<title>the eslo — My Timeline</title>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
-
 
 /* =========================
    RESET
@@ -38,11 +35,12 @@ body {
 
 
 /* =========================
-   BACKGROUND
+   BACKGROUND GLOW
 ========================= */
 
 body::before {
     content: "";
+
     position: fixed;
 
     width: 500px;
@@ -51,6 +49,7 @@ body::before {
     background: #2563eb;
 
     filter: blur(180px);
+
     opacity: .12;
 
     top: -150px;
@@ -64,6 +63,7 @@ body::before {
 
 body::after {
     content: "";
+
     position: fixed;
 
     width: 450px;
@@ -72,6 +72,7 @@ body::after {
     background: #7c3aed;
 
     filter: blur(180px);
+
     opacity: .08;
 
     bottom: -150px;
@@ -91,11 +92,15 @@ nav {
     position: fixed;
 
     top: 0;
+
     width: 100%;
+
     height: 70px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 0 7%;
@@ -110,10 +115,13 @@ nav {
 }
 
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo {
     display: flex;
+
     align-items: center;
 
     text-decoration: none;
@@ -122,6 +130,7 @@ nav {
 
 .logo img {
     width: 38px;
+
     height: 38px;
 
     object-fit: contain;
@@ -130,7 +139,9 @@ nav {
 }
 
 
-/* NAV LINKS */
+/* =========================
+   NAV LINKS
+========================= */
 
 nav a {
     color: #aaa;
@@ -171,11 +182,13 @@ nav a:hover {
 
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
 }
 
 
-/* BADGE */
+/* =========================
+   BADGE
+========================= */
 
 .badge {
 
@@ -197,28 +210,1543 @@ nav a:hover {
 }
 
 
-/* HERO TITLE */
+/* =========================
+   MAIN TITLE
+========================= */
 
 .hero h1 {
 
-    font-size: clamp(70px, 18vw, 150px);
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(65px, 15vw, 150px);
 
     line-height: .9;
 
-    letter-spacing: 12px;
+    letter-spacing: 3px;
 
     font-weight: 800;
 
     background: linear-gradient(
         135deg,
-        #fff,
+        #ffffff,
         #64748b
     );
 
     -webkit-background-clip: text;
 
+    background-clip: text;
+
     color: transparent;
+
+    direction: ltr;
 }
 
 
-.hero
+.hero p {
+
+    margin-top: 30px;
+
+    color: #8b95a7;
+
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+.hero .button {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    color: #05070b;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.hero .button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255,255,255,.12);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+
+    padding: 100px 7%;
+
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.section-title span {
+
+    color: #60a5fa;
+
+    font-size: 13px;
+}
+
+
+.section-title h2 {
+
+    margin-top: 10px;
+
+    font-size: 38px;
+}
+
+
+/* =========================
+   YEARS
+========================= */
+
+.years {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    max-width: 1000px;
+
+    margin: 0 auto 70px;
+}
+
+
+.year-btn {
+
+    border: 1px solid #202938;
+
+    background: #0b0f17;
+
+    color: #8b95a7;
+
+    padding: 10px 17px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-family: inherit;
+
+    font-size: 14px;
+}
+
+
+.year-btn:hover {
+
+    background: #1a2230;
+
+    color: #fff;
+
+    border-color: #334155;
+}
+
+
+.year-btn.active {
+
+    background: #fff;
+
+    color: #05070b;
+
+    border-color: #fff;
+
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+
+    position: relative;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+/* CENTER LINE */
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+
+    background: linear-gradient(
+        #2563eb,
+        rgba(37, 99, 235, .05)
+    );
+
+    top: 0;
+
+    bottom: 0;
+
+    right: 50%;
+}
+
+
+/* =========================
+   EVENT
+========================= */
+
+.event {
+
+    position: relative;
+
+    width: 50%;
+
+    padding: 15px 35px;
+
+    margin-bottom: 30px;
+
+    animation: eventAppear .4s ease;
+}
+
+
+@keyframes eventAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* RIGHT SIDE */
+
+.event:nth-child(odd) {
+
+    margin-right: 50%;
+
+    text-align: right;
+}
+
+
+/* LEFT SIDE */
+
+.event:nth-child(even) {
+
+    margin-left: 50%;
+
+    text-align: left;
+}
+
+
+/* =========================
+   TIMELINE DOT
+========================= */
+
+.event::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 14px;
+
+    height: 14px;
+
+    background: #2563eb;
+
+    border: 3px solid #05070b;
+
+    border-radius: 50%;
+
+    top: 25px;
+
+    right: -8px;
+
+    box-shadow:
+        0 0 20px rgba(37, 99, 235, .7);
+}
+
+
+.event:nth-child(even)::before {
+
+    left: -8px;
+
+    right: auto;
+}
+
+
+/* =========================
+   EVENT CARD
+========================= */
+
+.event-content {
+
+    background: rgba(15, 23, 42, .7);
+
+    border: 1px solid rgba(255, 255, 255, .07);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    transition: .3s;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.event-content:hover {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(96, 165, 250, .3);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.2);
+}
+
+
+/* =========================
+   EVENT YEAR
+========================= */
+
+.event-year {
+
+    color: #60a5fa;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   EVENT TITLE
+========================= */
+
+.event h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   EVENT TEXT
+========================= */
+
+.event p {
+
+    color: #8b95a7;
+
+    line-height: 2;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   EVENT IMAGE
+========================= */
+
+.event-image {
+
+    width: 100%;
+
+    border-radius: 12px;
+
+    margin-top: 18px;
+
+    display: block;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding: 0 5%;
+
+    }
+
+
+    nav a {
+
+        margin-right: 10px;
+
+        font-size: 12px;
+
+    }
+
+
+    .logo img {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .hero {
+
+        padding-top: 120px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 70px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .hero p {
+
+        font-size: 15px;
+
+    }
+
+
+    section {
+
+        padding: 80px 5%;
+
+    }
+
+
+    .section-title {
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .section-title h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .years {
+
+        gap: 8px;
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .year-btn {
+
+        padding: 8px 13px;
+
+        font-size: 13px;
+
+    }
+
+
+    /* TIMELINE */
+
+    .timeline::before {
+
+        right: 15px;
+
+    }
+
+
+    .event,
+
+    .event:nth-child(odd),
+
+    .event:nth-child(even) {
+
+        width: 100%;
+
+        margin: 0 0 25px 0;
+
+        padding: 15px 40px 15px 0;
+
+        text-align: right;
+
+    }
+
+
+    .event::before,
+
+    .event:nth-child(even)::before {
+
+        right: 8px;
+
+        left: auto;
+
+    }
+
+
+    .event-content {
+
+        padding: 20px;
+
+    }
+
+
+    .event h3 {
+
+        font-size: 20px;
+
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    nav {
+
+        padding: 0 4%;
+
+    }
+
+
+    nav a {
+
+        margin-right: 6px;
+
+        font-size: 11px;
+
+    }
+
+
+    .logo img {
+
+        width: 34px;
+
+        height: 34px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .year-btn {
+
+        padding: 7px 11px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <a
+        href="#home"
+        class="logo"
+    >
+
+        <img
+            src="eslo-logo.png"
+            alt="the eslo"
+        >
+
+    </a>
+
+
+    <div>
+
+        <a href="#home">
+            خانه
+        </a>
+
+        <a href="#timeline">
+            مسیر من
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+
+        <div class="badge">
+
+            MY TIMELINE
+
+        </div>
+
+
+        <h1>
+
+            the eslo
+
+        </h1>
+
+
+        <p>
+
+            داستان من، پروژه‌های من و اتفاق‌هایی
+            که مسیرم را ساختند.
+
+        </p>
+
+
+        <a
+            href="#timeline"
+            class="button"
+        >
+
+            مشاهده مسیر من ↓
+
+        </a>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     TIMELINE SECTION
+========================= -->
+
+<section id="timeline">
+
+
+    <div class="section-title">
+
+        <span>
+
+            MY JOURNEY
+
+        </span>
+
+
+        <h2>
+
+            مسیر من
+
+        </h2>
+
+    </div>
+
+
+
+    <!-- =========================
+         YEAR BUTTONS
+    ========================= -->
+
+    <div class="years">
+
+
+        <button
+            class="year-btn active"
+            data-year="all"
+        >
+            همه
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2026"
+        >
+            2026
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2025"
+        >
+            2025
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2024"
+        >
+            2024
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2023"
+        >
+            2023
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2022"
+        >
+            2022
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2021"
+        >
+            2021
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2020"
+        >
+            2020
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2019"
+        >
+            2019
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2018"
+        >
+            2018
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2017"
+        >
+            2017
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2016"
+        >
+            2016
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2015"
+        >
+            2015
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2014"
+        >
+            2014
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2013"
+        >
+            2013
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2012"
+        >
+            2012
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2011"
+        >
+            2011
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2010"
+        >
+            2010
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2009"
+        >
+            2009
+        </button>
+
+
+        <button
+            class="year-btn"
+            data-year="2008"
+        >
+            2008
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         TIMELINE
+    ========================= -->
+
+    <div class="timeline">
+
+
+        <!-- 2026 -->
+
+        <div
+            class="event"
+            data-year="2026"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2026
+                </div>
+
+                <h3>
+                    شروع یک فصل جدید
+                </h3>
+
+                <p>
+                    اینجا می‌توانی درباره اتفاق مهمی
+                    که در سال ۲۰۲۶ برایت افتاده بنویسی.
+                </p>
+
+                <img
+                    class="event-image"
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80"
+                    alt="شروع یک فصل جدید"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2025 -->
+
+        <div
+            class="event"
+            data-year="2025"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2025
+                </div>
+
+                <h3>
+                    یک پروژه مهم
+                </h3>
+
+                <p>
+                    توضیح کوتاهی درباره پروژه
+                    یا اتفاق مهم این سال.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2024 -->
+
+        <div
+            class="event"
+            data-year="2024"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2024
+                </div>
+
+                <h3>
+                    شروع مسیر
+                </h3>
+
+                <p>
+                    اینجا می‌توانی داستان شروع
+                    کار یا فعالیتت را بنویسی.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2023 -->
+
+        <div
+            class="event"
+            data-year="2023"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2023
+                </div>
+
+                <h3>
+                    اولین قدم‌ها
+                </h3>
+
+                <p>
+                    اتفاق مهمی که در این سال
+                    برایت افتاده است.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2022 -->
+
+        <div
+            class="event"
+            data-year="2022"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2022
+                </div>
+
+                <h3>
+                    2022
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۲۲
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2021 -->
+
+        <div
+            class="event"
+            data-year="2021"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2021
+                </div>
+
+                <h3>
+                    2021
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۲۱
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2020 -->
+
+        <div
+            class="event"
+            data-year="2020"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2020
+                </div>
+
+                <h3>
+                    2020
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۲۰
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2019 -->
+
+        <div
+            class="event"
+            data-year="2019"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2019
+                </div>
+
+                <h3>
+                    2019
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۹
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2018 -->
+
+        <div
+            class="event"
+            data-year="2018"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2018
+                </div>
+
+                <h3>
+                    2018
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۸
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2017 -->
+
+        <div
+            class="event"
+            data-year="2017"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2017
+                </div>
+
+                <h3>
+                    2017
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۷
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2016 -->
+
+        <div
+            class="event"
+            data-year="2016"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2016
+                </div>
+
+                <h3>
+                    2016
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۶
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2015 -->
+
+        <div
+            class="event"
+            data-year="2015"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2015
+                </div>
+
+                <h3>
+                    2015
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۵
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2014 -->
+
+        <div
+            class="event"
+            data-year="2014"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2014
+                </div>
+
+                <h3>
+                    2014
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۴
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2013 -->
+
+        <div
+            class="event"
+            data-year="2013"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2013
+                </div>
+
+                <h3>
+                    2013
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۳
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2012 -->
+
+        <div
+            class="event"
+            data-year="2012"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2012
+                </div>
+
+                <h3>
+                    2012
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۲
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2011 -->
+
+        <div
+            class="event"
+            data-year="2011"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2011
+                </div>
+
+                <h3>
+                    2011
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۱
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2010 -->
+
+        <div
+            class="event"
+            data-year="2010"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2010
+                </div>
+
+                <h3>
+                    2010
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۱۰
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2009 -->
+
+        <div
+            class="event"
+            data-year="2009"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2009
+                </div>
+
+                <h3>
+                    2009
+                </h3>
+
+                <p>
+                    اینجا اتفاق مهم سال ۲۰۰۹
+                    را اضافه کن.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2008 -->
+
+        <div
+            class="event"
+            data-year="2008"
+        >
+
+            <div class="event-content">
+
+                <div class="event-year">
+                    2008
+                </div>
+
+                <h3>
+                    شروع داستان
+                </h3>
+
+                <p>
+                    اینجا می‌توانی اولین اتفاق مهم
+                    مسیرت را در سال ۲۰۰۸ بنویسی.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    the eslo © 2026
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+const buttons =
+    document.querySelectorAll(".year-btn");
+
+const events =
+    document.querySelectorAll(".event");
+
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+
+        /* =========================
+           ACTIVE BUTTON
+        ========================= */
+
+        buttons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+
+        /* =========================
+           SELECTED YEAR
+        ========================= */
+
+        const selectedYear =
+            button.dataset.year;
+
+
+        /* =========================
+           FILTER EVENTS
+        ========================= */
+
+        events.forEach(event => {
+
+            const eventYear =
+                event.dataset.year;
+
+
+            if (
+                selectedYear === "all" ||
+                selectedYear === eventYear
+            ) {
+
+                event.style.display = "block";
+
+            }
+
+            else {
+
+                event.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+   </html>
