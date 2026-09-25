@@ -1,1680 +1,2095 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the eslo</title>
 
-<title>the eslo</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Modern Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
+        /* =========================
+           RESET
+        ========================= */
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* =====================================
-   RESET
-===================================== */
+        body {
+            background: #050505;
+            color: #fff;
+            font-family: "Vazirmatn", sans-serif;
+            overflow-x: hidden;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html {
-    scroll-behavior: smooth;
-}
+        /* =========================
+           BACKGROUND GLOWS
+        ========================= */
 
-body {
+        body::before {
+            content: "";
+            position: fixed;
 
-    font-family: "Vazirmatn", "Inter", sans-serif;
+            width: 550px;
+            height: 550px;
 
-    background: #050505;
+            top: -250px;
+            left: -220px;
 
-    color: #ffffff;
+            background: #1769ff;
+            border-radius: 50%;
 
-    overflow-x: hidden;
-}
+            filter: blur(170px);
+            opacity: .14;
 
+            pointer-events: none;
+            z-index: -2;
+        }
 
-/* =====================================
-   BLUE GLOW
-===================================== */
+        body::after {
+            content: "";
+            position: fixed;
 
-body::before {
+            width: 520px;
+            height: 520px;
 
-    content: "";
+            right: -240px;
+            bottom: -250px;
 
-    position: fixed;
+            background: #ff2020;
+            border-radius: 50%;
 
-    width: 550px;
-    height: 550px;
+            filter: blur(170px);
+            opacity: .13;
 
-    top: -220px;
-    left: -220px;
+            pointer-events: none;
+            z-index: -2;
+        }
 
-    background: #1769ff;
 
-    border-radius: 50%;
+        /* =========================
+           NAVBAR
+        ========================= */
 
-    filter: blur(170px);
+        nav {
+            position: fixed;
 
-    opacity: .16;
+            top: 0;
+            left: 0;
+            right: 0;
 
-    pointer-events: none;
+            height: 72px;
 
-    z-index: -2;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
+            padding: 0 6%;
 
-/* =====================================
-   RED GLOW
-===================================== */
+            background: rgba(5, 5, 5, .68);
 
-body::after {
+            border-bottom: 1px solid rgba(255,255,255,.06);
 
-    content: "";
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
-    position: fixed;
+            z-index: 1000;
+        }
 
-    width: 500px;
-    height: 500px;
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-    bottom: -220px;
-    right: -220px;
+        .logo img {
+            width: 42px;
+            height: auto;
+            display: block;
+        }
 
-    background: #ff2020;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
 
-    border-radius: 50%;
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
 
-    filter: blur(170px);
+            font-size: 13px;
+            font-weight: 500;
 
-    opacity: .13;
+            transition: .3s ease;
 
-    pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
 
-    z-index: -2;
-}
+        .nav-links a:hover {
+            color: #fff;
+        }
 
+        .social-icon {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
 
-/* =====================================
-   NAVBAR
-===================================== */
 
-nav {
+        /* =========================
+           HERO
+        ========================= */
 
-    position: fixed;
+        .hero {
+            min-height: 100vh;
 
-    top: 0;
-    left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    width: 100%;
+            text-align: center;
 
-    height: 72px;
+            padding: 100px 20px 70px;
+        }
 
-    display: flex;
+        .hero-content {
+            animation: heroAppear 1s ease;
+        }
 
-    align-items: center;
+        .hero-small {
+            color: #777;
 
-    justify-content: space-between;
+            font-size: 12px;
+            letter-spacing: 3px;
 
-    padding: 0 7%;
+            margin-bottom: 22px;
+        }
 
-    background: rgba(5,5,5,.65);
+        .hero h1 {
+            font-family: "Inter", sans-serif;
 
-    backdrop-filter: blur(20px);
+            font-size: clamp(58px, 11vw, 145px);
 
-    -webkit-backdrop-filter: blur(20px);
+            font-weight: 800;
 
-    border-bottom: 1px solid rgba(255,255,255,.06);
+            letter-spacing: -7px;
 
-    z-index: 100;
-}
+            line-height: .9;
 
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #888,
+                #ffffff
+            );
 
-/* LOGO */
+            -webkit-background-clip: text;
+            background-clip: text;
 
-.logo {
+            color: transparent;
 
-    display: flex;
+            margin-bottom: 30px;
+        }
 
-    align-items: center;
+        .hero-description {
+            max-width: 580px;
 
-    text-decoration: none;
-}
+            margin: auto;
 
+            color: #888;
 
-.logo img {
+            font-size: 15px;
+            line-height: 2;
 
-    width: 38px;
+        }
 
-    height: 38px;
+        .scroll-text {
+            margin-top: 55px;
 
-    object-fit: contain;
+            color: #555;
 
-    display: block;
-}
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
 
 
-/* NAV LINKS */
+        /* =========================
+           SECTION
+        ========================= */
 
-nav div {
+        section {
+            padding: 100px 6%;
+        }
 
-    display: flex;
+        .section-header {
+            text-align: center;
 
-    align-items: center;
-}
+            margin-bottom: 65px;
+        }
 
+        .section-header span {
+            color: #3b82f6;
 
-nav div a {
+            font-family: "Inter", sans-serif;
 
-    color: #888;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
 
-    text-decoration: none;
+        .section-header h2 {
+            margin-top: 12px;
 
-    margin-right: 28px;
+            font-size: 34px;
+            font-weight: 700;
+        }
 
-    font-size: 13px;
+        .section-header p {
+            color: #666;
 
-    transition: .3s;
-}
+            margin-top: 12px;
 
+            font-size: 13px;
+        }
 
-nav div a:hover {
 
-    color: #fff;
-}
+        /* =========================
+           YEAR FILTER
+        ========================= */
 
+        .year-filter {
+            max-width: 1000px;
 
-/* =====================================
-   HERO
-===================================== */
+            margin: 0 auto 70px;
 
-.hero {
+            display: flex;
 
-    min-height: 100vh;
+            flex-wrap: wrap;
 
-    display: flex;
+            justify-content: center;
 
-    align-items: center;
+            gap: 8px;
+        }
 
-    justify-content: center;
+        .year {
+            border: 1px solid rgba(255,255,255,.08);
 
-    text-align: center;
+            background: rgba(255,255,255,.025);
 
-    padding: 120px 20px;
+            color: #777;
 
-    position: relative;
-}
+            padding: 8px 13px;
 
+            border-radius: 30px;
 
-.hero-content {
+            font-family: "Inter", sans-serif;
 
-    max-width: 1000px;
-}
+            font-size: 11px;
 
+            cursor: pointer;
 
-/* SMALL TEXT */
+            transition: .3s ease;
+        }
 
-.hero-small {
+        .year:hover,
+        .year.active {
+            color: #fff;
 
-    display: inline-block;
+            background: rgba(59,130,246,.12);
 
-    color: #60a5fa;
+            border-color: rgba(59,130,246,.45);
 
-    font-family: "Inter", sans-serif;
+            box-shadow:
+                0 0 18px rgba(59,130,246,.12);
+        }
 
-    font-size: 12px;
 
-    font-weight: 600;
+        /* =========================
+           TIMELINE
+        ========================= */
 
-    letter-spacing: 4px;
+        .timeline {
+            max-width: 900px;
 
-    margin-bottom: 28px;
-}
+            margin: auto;
 
+            position: relative;
+        }
 
-/* MAIN TITLE */
+        .timeline::before {
+            content: "";
 
-.hero h1 {
+            position: absolute;
 
-    direction: ltr;
+            top: 0;
+            bottom: 0;
 
-    font-family: "Inter", sans-serif;
+            right: 50%;
 
-    font-size: clamp(65px, 15vw, 155px);
+            width: 1px;
 
-    font-weight: 900;
+            background:
+                linear-gradient(
+                    to bottom,
+                    #2563eb,
+                    #333,
+                    #ef4444
+                );
+        }
 
-    line-height: .9;
+        .event {
+            position: relative;
 
-    letter-spacing: -5px;
+            width: 50%;
 
-    background:
+            padding: 18px 38px;
 
-        linear-gradient(
-            135deg,
-            #ffffff 10%,
-            #a1a1aa 50%,
-            #52525b 100%
-        );
+            margin-bottom: 35px;
 
-    -webkit-background-clip: text;
+            animation: eventAppear .5s ease;
+        }
 
-    background-clip: text;
+        .event:nth-child(odd) {
+            margin-right: 50%;
+            text-align: right;
+        }
 
-    color: transparent;
+        .event:nth-child(even) {
+            margin-left: 50%;
+            text-align: left;
+        }
 
-    text-transform: lowercase;
-}
 
+        /* =========================
+           TIMELINE DOT
+        ========================= */
 
-/* HERO DESCRIPTION */
+        .event::before {
+            content: "";
 
-.hero p {
+            position: absolute;
 
-    margin-top: 35px;
+            width: 12px;
+            height: 12px;
 
-    color: #777;
+            top: 31px;
 
-    font-size: 16px;
+            right: -6px;
 
-    line-height: 2;
+            background: #20242b;
 
-}
+            border-radius: 50%;
 
+            border: 3px solid #050505;
 
-/* HERO BUTTON */
+            box-shadow: none;
 
-.hero-button {
+            opacity: .7;
 
-    display: inline-flex;
+            transform: scale(.85);
 
-    align-items: center;
+            transition:
+                background .6s ease,
+                box-shadow .6s ease,
+                opacity .6s ease,
+                transform .6s ease;
 
-    gap: 8px;
+            z-index: 5;
+        }
 
-    margin-top: 35px;
+        .event:nth-child(even)::before {
+            right: auto;
+            left: -6px;
+        }
 
-    padding: 14px 25px;
+        .event.active::before {
+            background: #3b82f6;
 
-    border-radius: 12px;
+            opacity: 1;
 
-    background: #fff;
+            transform: scale(1);
 
-    color: #050505;
+            box-shadow:
+                0 0 8px rgba(59,130,246,.9),
+                0 0 20px rgba(59,130,246,.75),
+                0 0 40px rgba(59,130,246,.45),
+                0 0 65px rgba(59,130,246,.20);
+        }
 
-    text-decoration: none;
 
-    font-size: 14px;
+        /* =========================
+           CARD
+        ========================= */
 
-    font-weight: 700;
+        .card {
+            position: relative;
 
-    transition: .3s;
-}
+            overflow: hidden;
 
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20,20,20,.90),
+                    rgba(10,10,10,.85)
+                );
 
-.hero-button:hover {
+            border: 1px solid rgba(255,255,255,.08);
 
-    transform: translateY(-4px);
+            border-radius: 20px;
 
-    box-shadow:
+            padding: 27px;
 
-        0 15px 40px rgba(255,255,255,.12);
-}
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
 
-/* =====================================
-   TIMELINE SECTION
-===================================== */
+        .card:hover {
+            transform: translateY(-5px);
 
-#timeline {
+            border-color: rgba(255,255,255,.15);
 
-    padding: 120px 6%;
-}
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.3);
+        }
 
 
-/* TITLE */
+        /* BLUE GLOW */
 
-.section-title {
+        .card::before {
+            content: "";
 
-    text-align: center;
+            position: absolute;
 
-    margin-bottom: 55px;
-}
+            width: 220px;
+            height: 220px;
 
+            top: -130px;
+            right: -100px;
 
-.section-title span {
+            background: rgba(37,99,235,.10);
 
-    font-family: "Inter", sans-serif;
+            border-radius: 50%;
 
-    color: #60a5fa;
+            filter: blur(80px);
 
-    font-size: 12px;
+            pointer-events: none;
 
-    font-weight: 600;
+            opacity: .7;
+        }
 
-    letter-spacing: 3px;
-}
+        .event:nth-child(even) .card::before {
+            right: auto;
+            left: -100px;
 
+            background: rgba(239,68,68,.09);
+        }
 
-.section-title h2 {
+        .card > * {
+            position: relative;
+            z-index: 2;
+        }
 
-    margin-top: 12px;
 
-    font-size: 42px;
+        /* =========================
+           YEAR + APPLE EMOJI
+        ========================= */
 
-    font-weight: 800;
-}
+        .card-year {
+            color: #60a5fa;
 
+            font-family:
+                "Inter",
+                -apple-system,
+                BlinkMacSystemFont,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Noto Color Emoji",
+                sans-serif;
 
-/* =====================================
-   YEAR BUTTONS
-===================================== */
+            font-size: 13px;
 
-.years {
+            font-weight: 700;
 
-    max-width: 1050px;
+            letter-spacing: 1px;
 
-    margin: 0 auto 80px;
+            margin-bottom: 12px;
 
-    display: flex;
+            display: flex;
 
-    justify-content: center;
+            align-items: center;
 
-    flex-wrap: wrap;
+            gap: 8px;
+        }
 
-    gap: 8px;
-}
+        .event:nth-child(odd) .card-year {
+            justify-content: flex-start;
+        }
 
+        .event:nth-child(even) .card-year {
+            justify-content: flex-start;
+        }
 
-.year {
+        .year-emoji {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Noto Color Emoji",
+                sans-serif;
 
-    border: 1px solid #222;
+            font-size: 20px;
 
-    background: rgba(15,15,15,.8);
+            line-height: 1;
 
-    color: #777;
+            display: inline-flex;
 
-    padding: 9px 15px;
+            align-items: center;
+            justify-content: center;
 
-    border-radius: 50px;
+            filter:
+                drop-shadow(
+                    0 0 7px rgba(255,255,255,.10)
+                );
+        }
 
-    cursor: pointer;
 
-    font-family: "Inter", sans-serif;
+        /* =========================
+           TIMELINE TEXT
+        ========================= */
 
-    font-size: 12px;
+        .card h3 {
+            font-size: 19px;
 
-    transition: .25s;
-}
+            margin-bottom: 10px;
 
+            font-weight: 700;
+        }
 
-.year:hover {
+        .card p {
+            color: #777;
 
-    color: #fff;
+            font-size: 13px;
 
-    border-color: #444;
+            line-height: 2;
 
-    background: #151515;
-}
+            max-width: 500px;
+        }
 
 
-.year.active {
+        /* =========================
+           GOALS
+        ========================= */
 
-    background: #fff;
+        .goals-section {
+            position: relative;
 
-    color: #000;
+            padding-top: 120px;
+        }
 
-    border-color: #fff;
+        .goals-grid {
+            max-width: 1100px;
 
-    font-weight: 600;
-}
+            margin: auto;
 
+            display: grid;
 
-/* =====================================
-   TIMELINE
-===================================== */
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
-.timeline {
+            gap: 22px;
+        }
 
-    max-width: 900px;
+        .goal-card {
+            position: relative;
 
-    margin: auto;
+            min-height: 250px;
 
-    position: relative;
-}
+            overflow: hidden;
 
+            border-radius: 24px;
 
-/* CENTER LINE */
+            border: 1px solid rgba(255,255,255,.08);
 
-.timeline::before {
+            background: #0a0a0a;
 
-    content: "";
+            text-decoration: none;
 
-    position: absolute;
+            color: white;
 
-    top: 0;
-    bottom: 0;
+            isolation: isolate;
 
-    right: 50%;
+            transition:
+                transform .4s ease,
+                border-color .4s ease,
+                box-shadow .4s ease;
+        }
 
-    width: 1px;
+        .goal-card:hover {
+            transform: translateY(-7px);
 
-    background:
+            border-color: rgba(255,255,255,.18);
 
-        linear-gradient(
-            to bottom,
-            #2563eb,
-            #333,
-            #ef4444
-        );
-}
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.35);
+        }
 
+        .goal-image {
+            position: absolute;
 
-/* =====================================
-   EVENT
-===================================== */
+            inset: 0;
 
-.event {
+            width: 100%;
+            height: 100%;
 
-    position: relative;
+            object-fit: cover;
 
-    width: 50%;
+            opacity: .55;
 
-    padding: 18px 38px;
+            transition:
+                transform .7s ease,
+                opacity .5s ease;
+        }
 
-    margin-bottom: 35px;
+        .goal-card:hover .goal-image {
+            transform: scale(1.07);
 
-    animation: showEvent .4s ease;
-}
+            opacity: .68;
+        }
 
+        .goal-overlay {
+            position: absolute;
 
-@keyframes showEvent {
+            inset: 0;
 
-    from {
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.95) 0%,
+                    rgba(0,0,0,.65) 48%,
+                    rgba(0,0,0,.12) 100%
+                );
 
-        opacity: 0;
+            z-index: 1;
+        }
 
-        transform: translateY(15px);
+        .goal-number {
+            position: absolute;
 
-    }
+            top: 20px;
+            right: 20px;
 
-    to {
+            width: 38px;
+            height: 38px;
 
-        opacity: 1;
+            display: flex;
 
-        transform: translateY(0);
+            align-items: center;
+            justify-content: center;
 
-    }
-}
+            border-radius: 50%;
 
+            background: rgba(0,0,0,.4);
 
-/* RIGHT SIDE */
+            border: 1px solid rgba(255,255,255,.15);
 
-.event:nth-child(odd) {
+            color: #fff;
 
-    margin-right: 50%;
+            font-family: "Inter", sans-serif;
 
-    text-align: right;
-}
+            font-size: 12px;
 
+            backdrop-filter: blur(10px);
 
-/* LEFT SIDE */
+            z-index: 2;
+        }
 
-.event:nth-child(even) {
+        .goal-content {
+            position: absolute;
 
-    margin-left: 50%;
+            right: 25px;
+            left: 25px;
+            bottom: 23px;
 
-    text-align: left;
-}
+            z-index: 2;
+        }
 
+        .goal-content span {
+            display: block;
 
-/* =====================================
-   DOT
-===================================== */
+            color: #60a5fa;
 
-.event::before {
+            font-size: 11px;
 
-    content: "";
+            margin-bottom: 7px;
 
-    position: absolute;
+            font-weight: 600;
+        }
 
-    width: 12px;
+        .goal-content h3 {
+            font-size: 22px;
 
-    height: 12px;
+            margin-bottom: 7px;
+        }
 
-    top: 31px;
+        .goal-content p {
+            color: #aaa;
 
-    right: -6px;
+            font-size: 12px;
 
-    background: #3b82f6;
+            line-height: 1.8;
+        }
 
-    border-radius: 50%;
 
-    border: 3px solid #050505;
+        /* =========================
+           SPECIAL GOAL CARD
+        ========================= */
 
-    box-shadow:
+        .goal-card.featured {
+            grid-column: span 2;
 
-        0 0 20px rgba(59,130,246,.8);
+            min-height: 320px;
+        }
 
-    z-index: 2;
-}
+        .goal-card.featured .goal-content h3 {
+            font-size: 28px;
+        }
 
 
-.event:nth-child(even)::before {
+        /* =========================
+           FOOTER
+        ========================= */
 
-    right: auto;
+        footer {
+            padding: 70px 20px 35px;
 
-    left: -6px;
-}
+            text-align: center;
 
+            border-top: 1px solid rgba(255,255,255,.05);
 
-/* =====================================
-   EVENT CARD
-===================================== */
+            margin-top: 70px;
+        }
 
-.card {
+        footer .footer-logo {
+            font-family: "Inter", sans-serif;
 
-    background:
+            font-size: 25px;
 
-        linear-gradient(
-            145deg,
-            rgba(20,20,20,.9),
-            rgba(10,10,10,.85)
-        );
+            font-weight: 800;
 
-    border: 1px solid rgba(255,255,255,.08);
+            letter-spacing: -1px;
 
-    border-radius: 20px;
+            margin-bottom: 12px;
+        }
 
-    padding: 27px;
+        footer p {
+            color: #555;
 
-    transition: .35s;
+            font-size: 11px;
+        }
 
-    backdrop-filter: blur(10px);
-}
 
+        /* =========================
+           ANIMATIONS
+        ========================= */
 
-.card:hover {
+        @keyframes heroAppear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
 
-    transform: translateY(-6px);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    border-color: rgba(255,255,255,.18);
+        @keyframes eventAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-    box-shadow:
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        0 20px 50px rgba(0,0,0,.35);
-}
 
+        /* =========================
+           MOBILE
+        ========================= */
 
-/* YEAR */
+        @media (max-width: 750px) {
 
-.card-year {
+            nav {
+                height: 65px;
 
-    font-family: "Inter", sans-serif;
+                padding: 0 20px;
+            }
 
-    color: #60a5fa;
+            .logo img {
+                width: 36px;
+            }
 
-    font-size: 12px;
+            .nav-links {
+                gap: 13px;
+            }
 
-    font-weight: 700;
+            .nav-links a {
+                font-size: 0;
+            }
 
-    letter-spacing: 1px;
+            .nav-links a:first-child {
+                font-size: 11px;
+            }
 
-    margin-bottom: 12px;
-}
+            .social-icon {
+                width: 17px;
+                height: 17px;
+            }
 
 
-/* TITLE */
+            .hero {
+                min-height: 90vh;
 
-.card h3 {
+                padding-top: 100px;
+            }
 
-    font-size: 21px;
+            .hero h1 {
+                font-size: 70px;
 
-    font-weight: 700;
+                letter-spacing: -5px;
+            }
 
-    margin-bottom: 12px;
-}
+            .hero-description {
+                font-size: 13px;
 
+                max-width: 90%;
+            }
 
-/* TEXT */
 
-.card p {
+            section {
+                padding: 75px 17px;
+            }
 
-    color: #777;
+            .section-header {
+                margin-bottom: 45px;
+            }
 
-    font-size: 14px;
+            .section-header h2 {
+                font-size: 28px;
+            }
 
-    line-height: 2;
-}
 
+            .year-filter {
+                gap: 6px;
 
-/* =====================================
-   FOOTER
-===================================== */
+                margin-bottom: 50px;
+            }
 
-footer {
+            .year {
+                padding: 7px 10px;
 
-    text-align: center;
+                font-size: 10px;
+            }
 
-    padding: 90px 20px;
 
-    color: #444;
+            .timeline::before {
+                right: 16px;
+            }
 
-    font-family: "Inter", sans-serif;
+            .event,
+            .event:nth-child(odd),
+            .event:nth-child(even) {
+                width: 100%;
 
-    font-size: 12px;
+                margin: 0 0 28px;
 
-    letter-spacing: 1px;
-}
+                padding:
+                    18px
+                    0
+                    18px
+                    45px;
 
+                text-align: right;
+            }
 
-/* =====================================
-   MOBILE
-===================================== */
+            .event::before,
+            .event:nth-child(even)::before {
+                right: 10px;
 
-@media (max-width: 700px) {
+                left: auto;
 
-    nav {
+                top: 31px;
+            }
 
-        height: 65px;
+            .card {
+                padding: 23px;
+            }
 
-        padding: 0 5%;
-    }
+            .card h3 {
+                font-size: 17px;
+            }
 
+            .card p {
+                font-size: 12px;
+            }
 
-    .logo img {
+            .card-year {
+                justify-content: flex-start !important;
+            }
 
-        width: 35px;
 
-        height: 35px;
-    }
+            .goals-grid {
+                grid-template-columns: 1fr;
 
+                gap: 15px;
+            }
 
-    nav div a {
+            .goal-card,
+            .goal-card.featured {
+                grid-column: span 1;
 
-        margin-right: 12px;
+                min-height: 250px;
+            }
 
-        font-size: 11px;
-    }
+            .goal-card.featured {
+                min-height: 280px;
+            }
 
+            .goal-card.featured .goal-content h3 {
+                font-size: 24px;
+            }
 
-    .hero {
+            .goal-content h3 {
+                font-size: 20px;
+            }
+        }
 
-        padding-top: 110px;
-    }
-
-
-    .hero h1 {
-
-        font-size: 65px;
-
-        letter-spacing: -3px;
-    }
-
-
-    .hero p {
-
-        font-size: 14px;
-
-        padding: 0 15px;
-    }
-
-
-    #timeline {
-
-        padding: 90px 5%;
-    }
-
-
-    .section-title h2 {
-
-        font-size: 32px;
-    }
-
-
-    .years {
-
-        margin-bottom: 55px;
-
-        gap: 7px;
-    }
-
-
-    .year {
-
-        padding: 8px 12px;
-
-        font-size: 11px;
-    }
-
-
-    /* MOBILE LINE */
-
-    .timeline::before {
-
-        right: 12px;
-    }
-
-
-    /* MOBILE EVENTS */
-
-    .event,
-
-    .event:nth-child(odd),
-
-    .event:nth-child(even) {
-
-        width: 100%;
-
-        margin: 0 0 25px 0;
-
-        padding:
-
-            10px
-            30px
-            10px
-            0;
-
-        text-align: right;
-    }
-
-
-    .event::before,
-
-    .event:nth-child(even)::before {
-
-        right: 6px;
-
-        left: auto;
-    }
-
-
-    .card {
-
-        padding: 20px;
-
-        border-radius: 16px;
-    }
-
-
-    .card h3 {
-
-        font-size: 18px;
-    }
-
-
-    .card p {
-
-        font-size: 13px;
-    }
-
-}
-
-
-/* =====================================
-   SMALL MOBILE
-===================================== */
-
-@media (max-width: 400px) {
-
-    .hero h1 {
-
-        font-size: 52px;
-
-        letter-spacing: -2px;
-    }
-
-
-    .hero-small {
-
-        font-size: 10px;
-
-        letter-spacing: 3px;
-    }
-
-
-    .section-title h2 {
-
-        font-size: 28px;
-    }
-
-}
-
-</style>
-
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- =====================================
-     NAVBAR
-===================================== -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
-<nav>
+    <nav>
 
-    <a
-        href="#home"
-        class="logo"
-    >
-
-        <img
-            src="eslo-logo.png"
-            alt="the eslo"
-        >
-
-    </a>
-
-
-    <div>
-
-        <a href="#home">
-            خانه
+        <a href="#home" class="logo">
+            <img src="eslo-logo.png" alt="the eslo">
         </a>
 
-        <a href="#timeline">
-            مسیر من
-        </a>
+        <div class="nav-links">
 
-    </div>
+            <a href="#home">
+                خانه
+            </a>
 
-</nav>
-
-
-
-<!-- =====================================
-     HERO
-===================================== -->
-
-<header
-    class="hero"
-    id="home"
->
-
-    <div class="hero-content">
+            <!-- Instagram -->
+            <a
+                href="https://instagram.com/theeslo"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+            >
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.5 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.5 6Z"/>
+                </svg>
+            </a>
 
 
-        <div class="hero-small">
+            <!-- Telegram -->
+            <a
+                href="https://t.me/theeslo"
+                target="_blank"
+                rel="noopener"
+                aria-label="Telegram"
+            >
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M21.4 3.3 2.8 10.5c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 1.8 5.7c.2.7.1 1 .8 1 .5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-15.6c.3-1.3-.5-1.9-1.7-1.4ZM8.2 13.3l9.9-6.2c.5-.3.9-.1.5.2l-8 7.2-.3 3.4-1.5-4.6-.6-.2Z"/>
+                </svg>
+            </a>
 
-            MY TIMELINE
+
+            <!-- X -->
+            <a
+                href="https://x.com/theeslo"
+                target="_blank"
+                rel="noopener"
+                aria-label="X"
+            >
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.4L2.8 2h6.4l4.4 5.8L18.9 2Zm-1.1 17.9h1.7L8.3 4H6.5l11.3 15.9Z"/>
+                </svg>
+            </a>
+
+
+            <!-- TikTok -->
+            <a
+                href="https://tiktok.com/@theeslo"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+            >
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M16.6 3c.3 2.1 1.5 3.4 3.4 3.5v3.2c-1.4.1-2.6-.3-3.7-1v6.7c0 4.1-3.2 6.6-6.8 6.6-3.3 0-5.8-2.4-5.8-5.6 0-3.7 3.1-6.2 6.9-5.9v3.3c-1.8-.2-3.4.8-3.4 2.5 0 1.3 1 2.4 2.4 2.4 1.6 0 2.9-1.1 2.9-3.2V3h4.1Z"/>
+                </svg>
+            </a>
+
+
+            <a href="#goals">
+                هدف‌ها
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                MY STORY • 2008 — 2026
+            </div>
+
+            <h1>the eslo</h1>
+
+            <p class="hero-description">
+                یک مسیر، چندین سال، هزاران فکر
+                <br>
+                اینجا بخشی از داستانی است که هنوز ادامه دارد.
+            </p>
+
+            <div class="scroll-text">
+                SCROLL TO EXPLORE ↓
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         TIMELINE
+    ========================= -->
+
+    <section id="story">
+
+        <div class="section-header">
+
+            <span>MY TIMELINE</span>
+
+            <h2>مسیر من</h2>
+
+            <p>
+                از شروع داستان تا جایی که امروز ایستاده‌ام.
+            </p>
 
         </div>
 
 
-        <h1>
 
+        <!-- YEAR BUTTONS -->
+
+        <div class="year-filter">
+
+            <button class="year active" data-year="all">
+                همه
+            </button>
+
+            <button class="year" data-year="2008">2008</button>
+            <button class="year" data-year="2009">2009</button>
+            <button class="year" data-year="2010">2010</button>
+            <button class="year" data-year="2011">2011</button>
+            <button class="year" data-year="2012">2012</button>
+            <button class="year" data-year="2013">2013</button>
+            <button class="year" data-year="2014">2014</button>
+            <button class="year" data-year="2015">2015</button>
+            <button class="year" data-year="2016">2016</button>
+            <button class="year" data-year="2017">2017</button>
+            <button class="year" data-year="2018">2018</button>
+            <button class="year" data-year="2019">2019</button>
+            <button class="year" data-year="2020">2020</button>
+            <button class="year" data-year="2021">2021</button>
+            <button class="year" data-year="2022">2022</button>
+            <button class="year" data-year="2023">2023</button>
+            <button class="year" data-year="2024">2024</button>
+            <button class="year" data-year="2025">2025</button>
+            <button class="year" data-year="2026">2026</button>
+
+        </div>
+
+
+
+        <div class="timeline">
+
+
+            <!-- 2008 -->
+
+            <div class="event" data-year="2008">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🎂</span>
+                        2008
+                    </div>
+
+                    <h3>شروع داستان</h3>
+
+                    <p>
+                        سالی که داستان من شروع شد.
+                        اولین صفحه از مسیری که قرار بود سال‌ها ادامه پیدا کند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2009 -->
+
+            <div class="event" data-year="2009">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">👶</span>
+                        2009
+                    </div>
+
+                    <h3>اولین سال‌ها</h3>
+
+                    <p>
+                        سال‌های ابتدایی زندگی؛ پر از تجربه‌هایی که شاید آن زمان کوچک بودند،
+                        اما هرکدام بخشی از شخصیت امروز من شدند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2010 -->
+
+            <div class="event" data-year="2010">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🧸</span>
+                        2010
+                    </div>
+
+                    <h3>دنیای کوچک من</h3>
+
+                    <p>
+                        دنیایی ساده‌تر، با کنجکاوی‌های کوچک و تجربه‌های تازه.
+                        مسیری که آرام‌آرام شخصیت من را شکل می‌داد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2011 -->
+
+            <div class="event" data-year="2011">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🎨</span>
+                        2011
+                    </div>
+
+                    <h3>کنجکاوی بیشتر</h3>
+
+                    <p>
+                        هر سال چیزهای جدیدی برای دیدن و تجربه کردن وجود داشت.
+                        هنوز خیلی چیزها ناشناخته بودند و همین جذابشان می‌کرد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2012 -->
+
+            <div class="event" data-year="2012">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">📚</span>
+                        2012
+                    </div>
+
+                    <h3>بزرگ‌تر شدن</h3>
+
+                    <p>
+                        کم‌کم دنیای اطرافم بزرگ‌تر شد.
+                        یادگیری و تجربه کردن تبدیل به بخش مهم‌تری از زندگی شد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2013 -->
+
+            <div class="event" data-year="2013">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🎮</span>
+                        2013
+                    </div>
+
+                    <h3>دنیای علاقه‌ها</h3>
+
+                    <p>
+                        سرگرمی‌ها و علاقه‌های شخصی کم‌کم شکل جدی‌تری گرفتند.
+                        بعضی علاقه‌ها سال‌ها بعد هم همراه من ماندند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2014 -->
+
+            <div class="event" data-year="2014">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🚀</span>
+                        2014
+                    </div>
+
+                    <h3>نگاه به آینده</h3>
+
+                    <p>
+                        کم‌کم آینده جذاب‌تر شد.
+                        فکر کردن به اینکه در سال‌های بعد چه کسی خواهم بود، شروع شد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2015 -->
+
+            <div class="event" data-year="2015">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">💡</span>
+                        2015
+                    </div>
+
+                    <h3>ایده‌های بیشتر</h3>
+
+                    <p>
+                        ذهنم پر از فکرها و علاقه‌های مختلف بود.
+                        بعضی از همین فکرها بعدها تبدیل به هدف شدند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2016 -->
+
+            <div class="event" data-year="2016">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🛠️</span>
+                        2016
+                    </div>
+
+                    <h3>ساختن</h3>
+
+                    <p>
+                        فقط داشتن ایده کافی نیست؛ باید چیزی ساخت.
+                        این نگاه بعدها در علاقه من به ساختن و طراحی سایت هم دیده شد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2017 -->
+
+            <div class="event" data-year="2017">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">💻</span>
+                        2017
+                    </div>
+
+                    <h3>دنیای دیجیتال</h3>
+
+                    <p>
+                        دنیای تکنولوژی و اینترنت جذاب‌تر شد.
+                        ساختن چیزهایی که دیگران بتوانند ببینند، حس متفاوتی داشت.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2018 -->
+
+            <div class="event" data-year="2018">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🎯</span>
+                        2018
+                    </div>
+
+                    <h3>هدف‌ها</h3>
+
+                    <p>
+                        کم‌کم فرق بین یک علاقه و یک هدف را بهتر می‌شد فهمید.
+                        بعضی چیزها ارزش این را داشتند که برایشان تلاش شود.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2019 -->
+
+            <div class="event" data-year="2019">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🌱</span>
+                        2019
+                    </div>
+
+                    <h3>رشد</h3>
+
+                    <p>
+                        هر سال چیزهایی از گذشته باقی می‌ماند و چیزهای جدیدی اضافه می‌شد.
+                        مسیر آرام‌آرام شکل خودش را پیدا می‌کرد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2020 -->
+
+            <div class="event" data-year="2020">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🔥</span>
+                        2020
+                    </div>
+
+                    <h3>قوی‌تر شدن</h3>
+
+                    <p>
+                        سالی متفاوت که باعث شد خیلی چیزها را از زاویه دیگری ببینم.
+                        بعضی تغییرات درونی از همین سال‌ها شکل گرفتند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2021 -->
+
+            <div class="event" data-year="2021">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🧠</span>
+                        2021
+                    </div>
+
+                    <h3>فکرهای بزرگ‌تر</h3>
+
+                    <p>
+                        نگاه من به آینده جدی‌تر شد.
+                        بیشتر به اینکه چه چیزی می‌خواهم و چه چیزی می‌توانم بسازم فکر کردم.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2022 -->
+
+            <div class="event" data-year="2022">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">⚡</span>
+                        2022
+                    </div>
+
+                    <h3>حرکت</h3>
+
+                    <p>
+                        علاقه به ساختن و تجربه کردن بیشتر شد.
+                        هدف‌ها دیگر فقط فکر نبودند و کم‌کم شکل واقعی‌تری گرفتند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2023 -->
+
+            <div class="event" data-year="2023">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🌍</span>
+                        2023
+                    </div>
+
+                    <h3>دنیای بزرگ‌تر</h3>
+
+                    <p>
+                        اینترنت و دنیای دیجیتال بخش بیشتری از مسیرم شدند.
+                        ایده اینکه چیزی با اسم خودم بسازم، جذاب‌تر از همیشه بود.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2024 -->
+
+            <div class="event" data-year="2024">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🚀</span>
+                        2024
+                    </div>
+
+                    <h3>شروع جدی‌تر</h3>
+
+                    <p>
+                        ساختن و طراحی برایم جدی‌تر شد.
+                        دوست داشتم چیزی داشته باشم که واقعاً حس خودم را منتقل کند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2025 -->
+
+            <div class="event" data-year="2025">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">🧩</span>
+                        2025
+                    </div>
+
+                    <h3>ساختن هویت خودم</h3>
+
+                    <p>
+                        the eslo فقط یک اسم نیست؛ بخشی از هویتی است که دارم می‌سازم.
+                        طراحی، اینترنت و ایده‌های شخصی بیشتر از قبل کنار هم قرار گرفتند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 2026 -->
+
+            <div class="event" data-year="2026">
+
+                <div class="card">
+
+                    <div class="card-year">
+                        <span class="year-emoji">👑</span>
+                        2026
+                    </div>
+
+                    <h3>امروز</h3>
+
+                    <p>
+                        امروز این سایت بخشی از داستان من است.
+                        اما مهم‌تر از گذشته، چیزهایی هستند که هنوز قرار است ساخته شوند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         GOALS
+    ========================= -->
+
+    <section class="goals-section" id="goals">
+
+        <div class="section-header">
+
+            <span>MY FUTURE</span>
+
+            <h2>هدف‌ها</h2>
+
+            <p>
+                چیزهایی که دوست دارم یک روز بهشان برسم.
+            </p>
+
+        </div>
+
+
+
+        <div class="goals-grid">
+
+
+            <!-- 01 PS5 -->
+
+            <div class="goal-card featured">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1400&q=85"
+                    alt="Gaming setup"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    01
+                </div>
+
+                <div class="goal-content">
+
+                    <span>WISH LIST</span>
+
+                    <h3>🎮 خرید PS5</h3>
+
+                    <p>
+                        یکی از چیزهایی که دوست دارم یک روز بالاخره بخرمش
+                        و یک ستاپ گیمینگ درست‌وحسابی داشته باشم.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 02 CAR -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"
+                    alt="Car"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    02
+                </div>
+
+                <div class="goal-content">
+
+                    <span>DREAM</span>
+
+                    <h3>🚘 ماشین</h3>
+
+                    <p>
+                        داشتن ماشین موردعلاقه‌ام و تجربه حس استقلال بیشتر.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 03 HOUSE -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Modern house"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    03
+                </div>
+
+                <div class="goal-content">
+
+                    <span>FUTURE</span>
+
+                    <h3>🏠 خونه</h3>
+
+                    <p>
+                        ساختن یا داشتن یک خانه که واقعاً حس کنم متعلق به خودم است.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 04 LOVE -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=85"
+                    alt="Love"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    04
+                </div>
+
+                <div class="goal-content">
+
+                    <span>LIFE</span>
+
+                    <h3>❤️ رسیدن به عشق</h3>
+
+                    <p>
+                        پیدا کردن یک رابطه سالم و واقعی که ارزش ماندن داشته باشد.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 05 PERSONAL BRAND -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85"
+                    alt="Creative workspace"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    05
+                </div>
+
+                <div class="goal-content">
+
+                    <span>BUILD</span>
+
+                    <h3>💻 ساختن برند شخصی</h3>
+
+                    <p>
+                        اینکه the eslo فقط یک اسم نباشد و تبدیل به چیزی واقعی شود.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 06 MONEY -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=85"
+                    alt="Financial planning"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    06
+                </div>
+
+                <div class="goal-content">
+
+                    <span>FREEDOM</span>
+
+                    <h3>💰 استقلال مالی</h3>
+
+                    <p>
+                        رسیدن به جایی که بتوانم برای زندگی و خواسته‌هایم مستقل تصمیم بگیرم.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 07 TRAVEL -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85"
+                    alt="Travel"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    07
+                </div>
+
+                <div class="goal-content">
+
+                    <span>EXPERIENCE</span>
+
+                    <h3>✈️ سفر</h3>
+
+                    <p>
+                        دیدن جاهای جدید و ساختن خاطراتی که سال‌ها بعد هم یادم بمانند.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 08 SETUP -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=1000&q=85"
+                    alt="Computer setup"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    08
+                </div>
+
+                <div class="goal-content">
+
+                    <span>CREATE</span>
+
+                    <h3>🖥️ ستاپ رویایی</h3>
+
+                    <p>
+                        داشتن یک فضای شخصی برای ساختن، بازی کردن و کار کردن.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 09 SKILLS -->
+
+            <div class="goal-card">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+                    alt="Learning technology"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    09
+                </div>
+
+                <div class="goal-content">
+
+                    <span>GROW</span>
+
+                    <h3>🧠 قوی‌تر شدن</h3>
+
+                    <p>
+                        یادگیری بیشتر، ساختن پروژه‌های بهتر و تبدیل علاقه‌ها به مهارت واقعی.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 10 LIFE -->
+
+            <div class="goal-card featured">
+
+                <img
+                    class="goal-image"
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"
+                    alt="Life goals"
+                >
+
+                <div class="goal-overlay"></div>
+
+                <div class="goal-number">
+                    10
+                </div>
+
+                <div class="goal-content">
+
+                    <span>THE BIG ONE</span>
+
+                    <h3>🌟 ساختن زندگی‌ای که دوستش داشته باشم</h3>
+
+                    <p>
+                        در نهایت، همه این هدف‌ها برای یک چیز هستند:
+                        ساختن یک زندگی که وقتی به گذشته نگاه می‌کنم، از مسیری که آمده‌ام راضی باشم.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-logo">
             the eslo
-
-        </h1>
-
+        </div>
 
         <p>
-
-            داستان من، پروژه‌های من و اتفاق‌هایی
-            که مسیرم را ساختند.
-
+            ساخته شده برای ثبت مسیری که هنوز ادامه دارد.
         </p>
 
+        <p style="margin-top:12px;">
+            the eslo © 2026
+        </p>
 
-        <a
-            href="#timeline"
-            class="hero-button"
-        >
+    </footer>
 
-            مشاهده مسیر من ↓
 
-        </a>
 
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-    </div>
+    <script>
 
-</header>
+        /* =========================
+           YEAR FILTER
+        ========================= */
 
+        const buttons =
+            document.querySelectorAll(".year");
 
+        const events =
+            document.querySelectorAll(".event");
 
-<!-- =====================================
-     TIMELINE
-===================================== -->
 
-<section id="timeline">
+        buttons.forEach(button => {
 
+            button.addEventListener("click", () => {
 
-    <div class="section-title">
+                buttons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
-        <span>
+                button.classList.add("active");
 
-            MY JOURNEY
+                const selectedYear =
+                    button.dataset.year;
 
-        </span>
 
+                events.forEach(event => {
 
-        <h2>
+                    const eventYear =
+                        event.dataset.year;
 
-            مسیر من
 
-        </h2>
+                    if (
+                        selectedYear === "all" ||
+                        eventYear === selectedYear
+                    ) {
 
-    </div>
+                        event.style.display = "block";
 
+                    } else {
 
+                        event.style.display = "none";
 
-    <!-- =====================================
-         YEARS
-         2008 → 2026
-    ===================================== -->
+                    }
 
-    <div class="years">
+                });
 
-
-        <button
-            class="year active"
-            data-year="all"
-        >
-            همه
-        </button>
-
-
-        <button class="year" data-year="2008">
-            2008
-        </button>
-
-        <button class="year" data-year="2009">
-            2009
-        </button>
-
-        <button class="year" data-year="2010">
-            2010
-        </button>
-
-        <button class="year" data-year="2011">
-            2011
-        </button>
-
-        <button class="year" data-year="2012">
-            2012
-        </button>
-
-        <button class="year" data-year="2013">
-            2013
-        </button>
-
-        <button class="year" data-year="2014">
-            2014
-        </button>
-
-        <button class="year" data-year="2015">
-            2015
-        </button>
-
-        <button class="year" data-year="2016">
-            2016
-        </button>
-
-        <button class="year" data-year="2017">
-            2017
-        </button>
-
-        <button class="year" data-year="2018">
-            2018
-        </button>
-
-        <button class="year" data-year="2019">
-            2019
-        </button>
-
-        <button class="year" data-year="2020">
-            2020
-        </button>
-
-        <button class="year" data-year="2021">
-            2021
-        </button>
-
-        <button class="year" data-year="2022">
-            2022
-        </button>
-
-        <button class="year" data-year="2023">
-            2023
-        </button>
-
-        <button class="year" data-year="2024">
-            2024
-        </button>
-
-        <button class="year" data-year="2025">
-            2025
-        </button>
-
-        <button class="year" data-year="2026">
-            2026
-        </button>
-
-
-    </div>
-
-
-
-    <!-- =====================================
-         EVENTS
-         IMPORTANT:
-         2008 IS FIRST / TOP
-         2026 IS LAST / BOTTOM
-    ===================================== -->
-
-    <div class="timeline">
-
-
-        <!-- 2008 -->
-
-        <div
-            class="event"
-            data-year="2008"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2008
-                </div>
-
-                <h3>
-                    شروع داستان
-                </h3>
-
-                <p>
-                    اینجا می‌توانی اولین اتفاق مهم
-                    مسیرت را در سال ۲۰۰۸ بنویسی.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2009 -->
-
-        <div
-            class="event"
-            data-year="2009"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2009
-                </div>
-
-                <h3>
-                    2009
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۰۹ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2010 -->
-
-        <div
-            class="event"
-            data-year="2010"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2010
-                </div>
-
-                <h3>
-                    2010
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۰ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2011 -->
-
-        <div
-            class="event"
-            data-year="2011"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2011
-                </div>
-
-                <h3>
-                    2011
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۱ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2012 -->
-
-        <div
-            class="event"
-            data-year="2012"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2012
-                </div>
-
-                <h3>
-                    2012
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۲ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2013 -->
-
-        <div
-            class="event"
-            data-year="2013"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2013
-                </div>
-
-                <h3>
-                    2013
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۳ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2014 -->
-
-        <div
-            class="event"
-            data-year="2014"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2014
-                </div>
-
-                <h3>
-                    2014
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۴ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2015 -->
-
-        <div
-            class="event"
-            data-year="2015"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2015
-                </div>
-
-                <h3>
-                    2015
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۵ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2016 -->
-
-        <div
-            class="event"
-            data-year="2016"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2016
-                </div>
-
-                <h3>
-                    2016
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۶ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2017 -->
-
-        <div
-            class="event"
-            data-year="2017"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2017
-                </div>
-
-                <h3>
-                    2017
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۷ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2018 -->
-
-        <div
-            class="event"
-            data-year="2018"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2018
-                </div>
-
-                <h3>
-                    2018
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۸ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2019 -->
-
-        <div
-            class="event"
-            data-year="2019"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2019
-                </div>
-
-                <h3>
-                    2019
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۹ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2020 -->
-
-        <div
-            class="event"
-            data-year="2020"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2020
-                </div>
-
-                <h3>
-                    2020
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۰ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2021 -->
-
-        <div
-            class="event"
-            data-year="2021"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2021
-                </div>
-
-                <h3>
-                    2021
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۱ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2022 -->
-
-        <div
-            class="event"
-            data-year="2022"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2022
-                </div>
-
-                <h3>
-                    2022
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۲ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2023 -->
-
-        <div
-            class="event"
-            data-year="2023"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2023
-                </div>
-
-                <h3>
-                    2023
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۳ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2024 -->
-
-        <div
-            class="event"
-            data-year="2024"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2024
-                </div>
-
-                <h3>
-                    2024
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۴ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2025 -->
-
-        <div
-            class="event"
-            data-year="2025"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2025
-                </div>
-
-                <h3>
-                    2025
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۵ را اینجا بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 2026 -->
-
-        <div
-            class="event"
-            data-year="2026"
-        >
-
-            <div class="card">
-
-                <div class="card-year">
-                    2026
-                </div>
-
-                <h3>
-                    یک فصل جدید
-                </h3>
-
-                <p>
-                    اینجا می‌توانی اتفاق مهم سال ۲۰۲۶
-                    و چیزهایی که به تازگی شروع کردی را بنویسی.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     FOOTER
-===================================== -->
-
-<footer>
-
-    the eslo © 2026
-
-</footer>
-
-
-
-<!-- =====================================
-     JAVASCRIPT
-===================================== -->
-
-<script>
-
-const buttons =
-    document.querySelectorAll(".year");
-
-const events =
-    document.querySelectorAll(".event");
-
-
-buttons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-
-        /* Active button */
-
-        buttons.forEach(btn => {
-
-            btn.classList.remove("active");
+            });
 
         });
 
 
-        button.classList.add("active");
 
+        /* =========================
+           TIMELINE SCROLL EFFECT
+        ========================= */
 
-        /* Selected year */
+        const observer =
+            new IntersectionObserver(
 
-        const selectedYear =
-            button.dataset.year;
+                entries => {
 
+                    entries.forEach(entry => {
 
-        /* Filter */
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                        } else {
+
+                            entry.target.classList.remove("active");
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: .45
+                }
+
+            );
+
 
         events.forEach(event => {
 
-            const eventYear =
-                event.dataset.year;
-
-
-            if (
-                selectedYear === "all" ||
-                selectedYear === eventYear
-            ) {
-
-                event.style.display = "block";
-
-            } else {
-
-                event.style.display = "none";
-
-            }
+            observer.observe(event);
 
         });
 
-    });
 
-});
-
-</script>
+    </script>
 
 
 </body>
-
     </html>
