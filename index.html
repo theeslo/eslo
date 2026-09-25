@@ -2,883 +2,1087 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>the eslo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>the eslo</title>
 
-        html {
-            scroll-behavior: smooth;
-        }
+<!-- Modern Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        body {
-            background: #050505;
-            color: white;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-        /* NAVBAR */
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
+<style>
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+/* =====================================
+   RESET
+===================================== */
 
-            padding: 0 7%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(15px);
+html {
+    scroll-behavior: smooth;
+}
 
-            border-bottom: 1px solid #1c1c1c;
+body {
 
-            z-index: 100;
-        }
+    font-family: "Vazirmatn", "Inter", sans-serif;
 
-        .logo img {
-            width: 38px;
-            height: 38px;
-            object-fit: contain;
-        }
+    background: #050505;
 
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-right: 25px;
-            font-size: 14px;
-        }
+    color: #ffffff;
 
-        nav a:hover {
-            color: white;
-        }
+    overflow-x: hidden;
+}
 
-        /* HERO */
 
-        .hero {
-            min-height: 100vh;
+/* =====================================
+   BLUE GLOW
+===================================== */
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+body::before {
 
-            text-align: center;
+    content: "";
 
-            padding: 100px 20px;
+    position: fixed;
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    #111827 0%,
-                    #050505 55%
-                );
-        }
+    width: 550px;
+    height: 550px;
 
-        .hero-small {
-            color: #60a5fa;
-            font-size: 13px;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-        }
+    top: -220px;
+    left: -220px;
 
-        .hero h1 {
-            direction: ltr;
+    background: #1769ff;
 
-            font-size: clamp(65px, 15vw, 150px);
+    border-radius: 50%;
 
-            font-weight: 800;
+    filter: blur(170px);
 
-            letter-spacing: 2px;
+    opacity: .16;
 
-            background: linear-gradient(
-                135deg,
-                white,
-                #64748b
-            );
+    pointer-events: none;
 
-            -webkit-background-clip: text;
-            background-clip: text;
+    z-index: -2;
+}
 
-            color: transparent;
-        }
 
-        .hero p {
-            color: #888;
+/* =====================================
+   RED GLOW
+===================================== */
 
-            margin-top: 25px;
+body::after {
 
-            font-size: 16px;
+    content: "";
 
-            line-height: 2;
-        }
+    position: fixed;
 
-        .hero-button {
-            display: inline-block;
+    width: 500px;
+    height: 500px;
 
-            margin-top: 35px;
+    bottom: -220px;
+    right: -220px;
 
-            padding: 14px 25px;
+    background: #ff2020;
 
-            background: white;
+    border-radius: 50%;
 
-            color: black;
+    filter: blur(170px);
 
-            text-decoration: none;
+    opacity: .13;
 
-            border-radius: 12px;
+    pointer-events: none;
 
-            font-weight: bold;
+    z-index: -2;
+}
 
-            transition: 0.3s;
-        }
 
-        .hero-button:hover {
-            transform: translateY(-4px);
-        }
+/* =====================================
+   NAVBAR
+===================================== */
 
-        /* TIMELINE SECTION */
+nav {
 
-        #timeline {
-            padding: 110px 6%;
-        }
+    position: fixed;
 
-        .title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
+    top: 0;
+    left: 0;
 
-        .title span {
-            color: #60a5fa;
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
+    width: 100%;
 
-        .title h2 {
-            margin-top: 10px;
-            font-size: 40px;
-        }
+    height: 72px;
 
-        /* YEARS */
+    display: flex;
 
-        .years {
-            max-width: 1000px;
+    align-items: center;
 
-            margin: 0 auto 70px;
+    justify-content: space-between;
 
-            display: flex;
+    padding: 0 7%;
 
-            justify-content: center;
+    background: rgba(5,5,5,.65);
 
-            flex-wrap: wrap;
+    backdrop-filter: blur(20px);
 
-            gap: 8px;
-        }
+    -webkit-backdrop-filter: blur(20px);
 
-        .year {
-            border: 1px solid #252525;
+    border-bottom: 1px solid rgba(255,255,255,.06);
 
-            background: #0d0d0d;
+    z-index: 100;
+}
 
-            color: #888;
 
-            padding: 9px 15px;
+/* LOGO */
 
-            border-radius: 50px;
+.logo {
 
-            cursor: pointer;
+    display: flex;
 
-            font-size: 13px;
+    align-items: center;
 
-            transition: 0.2s;
-        }
+    text-decoration: none;
+}
 
-        .year:hover {
-            color: white;
-            border-color: #444;
-        }
 
-        .year.active {
-            background: white;
-            color: black;
-            border-color: white;
-        }
+.logo img {
 
-        /* TIMELINE */
+    width: 38px;
 
-        .timeline {
-            max-width: 850px;
+    height: 38px;
 
-            margin: auto;
+    object-fit: contain;
 
-            position: relative;
-        }
+    display: block;
+}
 
-        .timeline::before {
-            content: "";
 
-            position: absolute;
+/* NAV LINKS */
 
-            top: 0;
-            bottom: 0;
+nav div {
 
-            right: 50%;
+    display: flex;
 
-            width: 2px;
+    align-items: center;
+}
 
-            background: #222;
-        }
 
-        /* EVENT */
+nav div a {
 
-        .event {
-            width: 50%;
+    color: #888;
 
-            position: relative;
+    text-decoration: none;
 
-            padding: 15px 35px;
+    margin-right: 28px;
 
-            margin-bottom: 35px;
-        }
+    font-size: 13px;
 
-        .event:nth-child(odd) {
-            margin-right: 50%;
-            text-align: right;
-        }
+    transition: .3s;
+}
 
-        .event:nth-child(even) {
-            margin-left: 50%;
-            text-align: left;
-        }
 
-        /* DOT */
+nav div a:hover {
 
-        .event::before {
-            content: "";
+    color: #fff;
+}
 
-            position: absolute;
 
-            top: 27px;
+/* =====================================
+   HERO
+===================================== */
 
-            right: -7px;
+.hero {
 
-            width: 12px;
-            height: 12px;
+    min-height: 100vh;
 
-            border-radius: 50%;
+    display: flex;
 
-            background: #3b82f6;
+    align-items: center;
 
-            border: 3px solid #050505;
+    justify-content: center;
 
-            box-shadow: 0 0 15px #3b82f6;
-        }
+    text-align: center;
 
-        .event:nth-child(even)::before {
-            right: auto;
-            left: -7px;
-        }
+    padding: 120px 20px;
 
-        /* CARD */
+    position: relative;
+}
 
-        .card {
-            background: #0d0d0d;
 
-            border: 1px solid #202020;
+.hero-content {
 
-            border-radius: 18px;
+    max-width: 1000px;
+}
 
-            padding: 24px;
 
-            transition: 0.3s;
-        }
+/* SMALL TEXT */
 
-        .card:hover {
-            transform: translateY(-5px);
+.hero-small {
 
-            border-color: #333;
-        }
+    display: inline-block;
 
-        .card-year {
-            color: #60a5fa;
+    color: #60a5fa;
 
-            font-size: 13px;
+    font-family: "Inter", sans-serif;
 
-            margin-bottom: 10px;
-        }
+    font-size: 12px;
 
-        .card h3 {
-            font-size: 21px;
+    font-weight: 600;
 
-            margin-bottom: 10px;
-        }
+    letter-spacing: 4px;
 
-        .card p {
-            color: #888;
+    margin-bottom: 28px;
+}
 
-            font-size: 14px;
 
-            line-height: 2;
-        }
+/* MAIN TITLE */
 
-        /* FOOTER */
+.hero h1 {
 
-        footer {
-            text-align: center;
+    direction: ltr;
 
-            padding: 70px 20px;
+    font-family: "Inter", sans-serif;
 
-            color: #555;
+    font-size: clamp(65px, 15vw, 155px);
 
-            font-size: 13px;
-        }
+    font-weight: 900;
 
-        /* MOBILE */
+    line-height: .9;
 
-        @media (max-width: 700px) {
+    letter-spacing: -5px;
 
-            nav {
-                padding: 0 5%;
-            }
+    background:
 
-            nav a {
-                margin-right: 10px;
-                font-size: 12px;
-            }
+        linear-gradient(
+            135deg,
+            #ffffff 10%,
+            #a1a1aa 50%,
+            #52525b 100%
+        );
 
-            .hero h1 {
-                font-size: 65px;
-            }
+    -webkit-background-clip: text;
 
-            #timeline {
-                padding: 80px 5%;
-            }
+    background-clip: text;
 
-            .title h2 {
-                font-size: 30px;
-            }
+    color: transparent;
 
-            .timeline::before {
-                right: 12px;
-            }
+    text-transform: lowercase;
+}
 
-            .event,
-            .event:nth-child(odd),
-            .event:nth-child(even) {
-                width: 100%;
 
-                margin: 0 0 25px 0;
+/* HERO DESCRIPTION */
 
-                padding: 10px 35px 10px 0;
+.hero p {
 
-                text-align: right;
-            }
+    margin-top: 35px;
 
-            .event::before,
-            .event:nth-child(even)::before {
-                right: 5px;
-                left: auto;
-            }
+    color: #777;
 
-            .card {
-                padding: 20px;
-            }
-        }
-    </style>
+    font-size: 16px;
+
+    line-height: 2;
+
+}
+
+
+/* HERO BUTTON */
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 35px;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.hero-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+
+        0 15px 40px rgba(255,255,255,.12);
+}
+
+
+/* =====================================
+   TIMELINE SECTION
+===================================== */
+
+#timeline {
+
+    padding: 120px 6%;
+}
+
+
+/* TITLE */
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+
+.section-title span {
+
+    font-family: "Inter", sans-serif;
+
+    color: #60a5fa;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+.section-title h2 {
+
+    margin-top: 12px;
+
+    font-size: 42px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================
+   YEAR BUTTONS
+===================================== */
+
+.years {
+
+    max-width: 1050px;
+
+    margin: 0 auto 80px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.year {
+
+    border: 1px solid #222;
+
+    background: rgba(15,15,15,.8);
+
+    color: #777;
+
+    padding: 9px 15px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 12px;
+
+    transition: .25s;
+}
+
+
+.year:hover {
+
+    color: #fff;
+
+    border-color: #444;
+
+    background: #151515;
+}
+
+
+.year.active {
+
+    background: #fff;
+
+    color: #000;
+
+    border-color: #fff;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   TIMELINE
+===================================== */
+
+.timeline {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+
+/* CENTER LINE */
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    right: 50%;
+
+    width: 1px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #2563eb,
+            #333,
+            #ef4444
+        );
+}
+
+
+/* =====================================
+   EVENT
+===================================== */
+
+.event {
+
+    position: relative;
+
+    width: 50%;
+
+    padding: 18px 38px;
+
+    margin-bottom: 35px;
+
+    animation: showEvent .4s ease;
+}
+
+
+@keyframes showEvent {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+}
+
+
+/* RIGHT SIDE */
+
+.event:nth-child(odd) {
+
+    margin-right: 50%;
+
+    text-align: right;
+}
+
+
+/* LEFT SIDE */
+
+.event:nth-child(even) {
+
+    margin-left: 50%;
+
+    text-align: left;
+}
+
+
+/* =====================================
+   DOT
+===================================== */
+
+.event::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    top: 31px;
+
+    right: -6px;
+
+    background: #3b82f6;
+
+    border-radius: 50%;
+
+    border: 3px solid #050505;
+
+    box-shadow:
+
+        0 0 20px rgba(59,130,246,.8);
+
+    z-index: 2;
+}
+
+
+.event:nth-child(even)::before {
+
+    right: auto;
+
+    left: -6px;
+}
+
+
+/* =====================================
+   EVENT CARD
+===================================== */
+
+.card {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(20,20,20,.9),
+            rgba(10,10,10,.85)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 20px;
+
+    padding: 27px;
+
+    transition: .35s;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: rgba(255,255,255,.18);
+
+    box-shadow:
+
+        0 20px 50px rgba(0,0,0,.35);
+}
+
+
+/* YEAR */
+
+.card-year {
+
+    font-family: "Inter", sans-serif;
+
+    color: #60a5fa;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+}
+
+
+/* TITLE */
+
+.card h3 {
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+
+/* TEXT */
+
+.card p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 2;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 90px 20px;
+
+    color: #444;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        height: 65px;
+
+        padding: 0 5%;
+    }
+
+
+    .logo img {
+
+        width: 35px;
+
+        height: 35px;
+    }
+
+
+    nav div a {
+
+        margin-right: 12px;
+
+        font-size: 11px;
+    }
+
+
+    .hero {
+
+        padding-top: 110px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 65px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .hero p {
+
+        font-size: 14px;
+
+        padding: 0 15px;
+    }
+
+
+    #timeline {
+
+        padding: 90px 5%;
+    }
+
+
+    .section-title h2 {
+
+        font-size: 32px;
+    }
+
+
+    .years {
+
+        margin-bottom: 55px;
+
+        gap: 7px;
+    }
+
+
+    .year {
+
+        padding: 8px 12px;
+
+        font-size: 11px;
+    }
+
+
+    /* MOBILE LINE */
+
+    .timeline::before {
+
+        right: 12px;
+    }
+
+
+    /* MOBILE EVENTS */
+
+    .event,
+
+    .event:nth-child(odd),
+
+    .event:nth-child(even) {
+
+        width: 100%;
+
+        margin: 0 0 25px 0;
+
+        padding:
+
+            10px
+            30px
+            10px
+            0;
+
+        text-align: right;
+    }
+
+
+    .event::before,
+
+    .event:nth-child(even)::before {
+
+        right: 6px;
+
+        left: auto;
+    }
+
+
+    .card {
+
+        padding: 20px;
+
+        border-radius: 16px;
+    }
+
+
+    .card h3 {
+
+        font-size: 18px;
+    }
+
+
+    .card p {
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .hero-small {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .section-title h2 {
+
+        font-size: 28px;
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- NAVBAR -->
+<!-- =====================================
+     NAVBAR
+===================================== -->
 
 <nav>
 
-    <a href="#home" class="logo">
-        <img src="eslo-logo.png" alt="the eslo">
+    <a
+        href="#home"
+        class="logo"
+    >
+
+        <img
+            src="eslo-logo.png"
+            alt="the eslo"
+        >
+
     </a>
 
+
     <div>
-        <a href="#home">خانه</a>
-        <a href="#timeline">مسیر من</a>
+
+        <a href="#home">
+            خانه
+        </a>
+
+        <a href="#timeline">
+            مسیر من
+        </a>
+
     </div>
 
 </nav>
 
 
-<!-- HERO -->
 
-<header class="hero" id="home">
+<!-- =====================================
+     HERO
+===================================== -->
 
-    <div>
+<header
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
 
         <div class="hero-small">
+
             MY TIMELINE
+
         </div>
 
+
         <h1>
+
             the eslo
+
         </h1>
 
+
         <p>
+
             داستان من، پروژه‌های من و اتفاق‌هایی
             که مسیرم را ساختند.
+
         </p>
+
 
         <a
             href="#timeline"
             class="hero-button"
         >
+
             مشاهده مسیر من ↓
+
         </a>
+
 
     </div>
 
 </header>
 
 
-<!-- TIMELINE -->
+
+<!-- =====================================
+     TIMELINE
+===================================== -->
 
 <section id="timeline">
 
-    <div class="title">
+
+    <div class="section-title">
 
         <span>
+
             MY JOURNEY
+
         </span>
 
+
         <h2>
+
             مسیر من
+
         </h2>
 
     </div>
 
 
-    <!-- YEARS -->
+
+    <!-- =====================================
+         YEARS
+         2008 → 2026
+    ===================================== -->
 
     <div class="years">
 
-        <button class="year active" data-year="all">همه</button>
 
-        <button class="year" data-year="2026">2026</button>
-        <button class="year" data-year="2025">2025</button>
-        <button class="year" data-year="2024">2024</button>
-        <button class="year" data-year="2023">2023</button>
-        <button class="year" data-year="2022">2022</button>
-        <button class="year" data-year="2021">2021</button>
-        <button class="year" data-year="2020">2020</button>
-        <button class="year" data-year="2019">2019</button>
-        <button class="year" data-year="2018">2018</button>
-        <button class="year" data-year="2017">2017</button>
-        <button class="year" data-year="2016">2016</button>
-        <button class="year" data-year="2015">2015</button>
-        <button class="year" data-year="2014">2014</button>
-        <button class="year" data-year="2013">2013</button>
-        <button class="year" data-year="2012">2012</button>
-        <button class="year" data-year="2011">2011</button>
-        <button class="year" data-year="2010">2010</button>
-        <button class="year" data-year="2009">2009</button>
-        <button class="year" data-year="2008">2008</button>
+        <button
+            class="year active"
+            data-year="all"
+        >
+            همه
+        </button>
+
+
+        <button class="year" data-year="2008">
+            2008
+        </button>
+
+        <button class="year" data-year="2009">
+            2009
+        </button>
+
+        <button class="year" data-year="2010">
+            2010
+        </button>
+
+        <button class="year" data-year="2011">
+            2011
+        </button>
+
+        <button class="year" data-year="2012">
+            2012
+        </button>
+
+        <button class="year" data-year="2013">
+            2013
+        </button>
+
+        <button class="year" data-year="2014">
+            2014
+        </button>
+
+        <button class="year" data-year="2015">
+            2015
+        </button>
+
+        <button class="year" data-year="2016">
+            2016
+        </button>
+
+        <button class="year" data-year="2017">
+            2017
+        </button>
+
+        <button class="year" data-year="2018">
+            2018
+        </button>
+
+        <button class="year" data-year="2019">
+            2019
+        </button>
+
+        <button class="year" data-year="2020">
+            2020
+        </button>
+
+        <button class="year" data-year="2021">
+            2021
+        </button>
+
+        <button class="year" data-year="2022">
+            2022
+        </button>
+
+        <button class="year" data-year="2023">
+            2023
+        </button>
+
+        <button class="year" data-year="2024">
+            2024
+        </button>
+
+        <button class="year" data-year="2025">
+            2025
+        </button>
+
+        <button class="year" data-year="2026">
+            2026
+        </button>
+
 
     </div>
 
 
-    <!-- TIMELINE -->
+
+    <!-- =====================================
+         EVENTS
+         IMPORTANT:
+         2008 IS FIRST / TOP
+         2026 IS LAST / BOTTOM
+    ===================================== -->
 
     <div class="timeline">
 
 
-        <div class="event" data-year="2026">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2026
-                </div>
-
-                <h3>
-                    شروع یک فصل جدید
-                </h3>
-
-                <p>
-                    اینجا اتفاق مهم سال ۲۰۲۶ را بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2025">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2025
-                </div>
-
-                <h3>
-                    یک پروژه مهم
-                </h3>
-
-                <p>
-                    اتفاق مهمی که در سال ۲۰۲۵ افتاد.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2024">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2024
-                </div>
-
-                <h3>
-                    شروع مسیر
-                </h3>
-
-                <p>
-                    اینجا اتفاق مهم سال ۲۰۲۴ را بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2023">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2023
-                </div>
-
-                <h3>
-                    اولین قدم‌ها
-                </h3>
-
-                <p>
-                    اینجا اتفاق مهم سال ۲۰۲۳ را بنویس.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2022">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2022
-                </div>
-
-                <h3>
-                    2022
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۲ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2021">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2021
-                </div>
-
-                <h3>
-                    2021
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۱ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2020">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2020
-                </div>
-
-                <h3>
-                    2020
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۲۰ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2019">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2019
-                </div>
-
-                <h3>
-                    2019
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۹ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2018">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2018
-                </div>
-
-                <h3>
-                    2018
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۸ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2017">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2017
-                </div>
-
-                <h3>
-                    2017
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۷ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2016">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2016
-                </div>
-
-                <h3>
-                    2016
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۶ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2015">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2015
-                </div>
-
-                <h3>
-                    2015
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۵ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2014">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2014
-                </div>
-
-                <h3>
-                    2014
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۴ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2013">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2013
-                </div>
-
-                <h3>
-                    2013
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۳ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2012">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2012
-                </div>
-
-                <h3>
-                    2012
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۲ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2011">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2011
-                </div>
-
-                <h3>
-                    2011
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۱ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2010">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2010
-                </div>
-
-                <h3>
-                    2010
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۱۰ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2009">
-
-            <div class="card">
-
-                <div class="card-year">
-                    2009
-                </div>
-
-                <h3>
-                    2009
-                </h3>
-
-                <p>
-                    اتفاق مهم سال ۲۰۰۹ را اینجا اضافه کن.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="event" data-year="2008">
+        <!-- 2008 -->
+
+        <div
+            class="event"
+            data-year="2008"
+        >
 
             <div class="card">
 
@@ -900,12 +1104,502 @@
         </div>
 
 
+
+        <!-- 2009 -->
+
+        <div
+            class="event"
+            data-year="2009"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2009
+                </div>
+
+                <h3>
+                    2009
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۰۹ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2010 -->
+
+        <div
+            class="event"
+            data-year="2010"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2010
+                </div>
+
+                <h3>
+                    2010
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۰ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2011 -->
+
+        <div
+            class="event"
+            data-year="2011"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2011
+                </div>
+
+                <h3>
+                    2011
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۱ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2012 -->
+
+        <div
+            class="event"
+            data-year="2012"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2012
+                </div>
+
+                <h3>
+                    2012
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۲ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2013 -->
+
+        <div
+            class="event"
+            data-year="2013"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2013
+                </div>
+
+                <h3>
+                    2013
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۳ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2014 -->
+
+        <div
+            class="event"
+            data-year="2014"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2014
+                </div>
+
+                <h3>
+                    2014
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۴ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2015 -->
+
+        <div
+            class="event"
+            data-year="2015"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2015
+                </div>
+
+                <h3>
+                    2015
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۵ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2016 -->
+
+        <div
+            class="event"
+            data-year="2016"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2016
+                </div>
+
+                <h3>
+                    2016
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۶ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2017 -->
+
+        <div
+            class="event"
+            data-year="2017"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2017
+                </div>
+
+                <h3>
+                    2017
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۷ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2018 -->
+
+        <div
+            class="event"
+            data-year="2018"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2018
+                </div>
+
+                <h3>
+                    2018
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۸ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2019 -->
+
+        <div
+            class="event"
+            data-year="2019"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2019
+                </div>
+
+                <h3>
+                    2019
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۱۹ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2020 -->
+
+        <div
+            class="event"
+            data-year="2020"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2020
+                </div>
+
+                <h3>
+                    2020
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۲۰ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2021 -->
+
+        <div
+            class="event"
+            data-year="2021"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2021
+                </div>
+
+                <h3>
+                    2021
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۲۱ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2022 -->
+
+        <div
+            class="event"
+            data-year="2022"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2022
+                </div>
+
+                <h3>
+                    2022
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۲۲ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2023 -->
+
+        <div
+            class="event"
+            data-year="2023"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2023
+                </div>
+
+                <h3>
+                    2023
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۲۳ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2024 -->
+
+        <div
+            class="event"
+            data-year="2024"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2024
+                </div>
+
+                <h3>
+                    2024
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۲۴ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2025 -->
+
+        <div
+            class="event"
+            data-year="2025"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2025
+                </div>
+
+                <h3>
+                    2025
+                </h3>
+
+                <p>
+                    اتفاق مهم سال ۲۰۲۵ را اینجا بنویس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 2026 -->
+
+        <div
+            class="event"
+            data-year="2026"
+        >
+
+            <div class="card">
+
+                <div class="card-year">
+                    2026
+                </div>
+
+                <h3>
+                    یک فصل جدید
+                </h3>
+
+                <p>
+                    اینجا می‌توانی اتفاق مهم سال ۲۰۲۶
+                    و چیزهایی که به تازگی شروع کردی را بنویسی.
+                </p>
+
+            </div>
+
+        </div>
+
+
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =====================================
+     FOOTER
+===================================== -->
 
 <footer>
 
@@ -914,63 +1608,73 @@
 </footer>
 
 
-<!-- JAVASCRIPT -->
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
 
 <script>
 
-    const buttons = document.querySelectorAll(".year");
+const buttons =
+    document.querySelectorAll(".year");
 
-    const events = document.querySelectorAll(".event");
-
-
-    buttons.forEach(button => {
-
-        button.addEventListener("click", function() {
-
-            /* فعال کردن دکمه */
-
-            buttons.forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            this.classList.add("active");
+const events =
+    document.querySelectorAll(".event");
 
 
-            /* سال انتخاب شده */
+buttons.forEach(button => {
 
-            const selectedYear =
-                this.getAttribute("data-year");
-
-
-            /* فیلتر */
-
-            events.forEach(event => {
-
-                const eventYear =
-                    event.getAttribute("data-year");
+    button.addEventListener("click", () => {
 
 
-                if (
-                    selectedYear === "all" ||
-                    selectedYear === eventYear
-                ) {
+        /* Active button */
 
-                    event.style.display = "block";
+        buttons.forEach(btn => {
 
-                } else {
+            btn.classList.remove("active");
 
-                    event.style.display = "none";
+        });
 
-                }
 
-            });
+        button.classList.add("active");
+
+
+        /* Selected year */
+
+        const selectedYear =
+            button.dataset.year;
+
+
+        /* Filter */
+
+        events.forEach(event => {
+
+            const eventYear =
+                event.dataset.year;
+
+
+            if (
+                selectedYear === "all" ||
+                selectedYear === eventYear
+            ) {
+
+                event.style.display = "block";
+
+            } else {
+
+                event.style.display = "none";
+
+            }
 
         });
 
     });
 
+});
+
 </script>
 
 
 </body>
-           </html>
+
+    </html>
